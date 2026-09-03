@@ -177,18 +177,16 @@
   letter-spacing: -0.2px;
 }
 
-/* Clean Premium Vision Banner (Replaces old plain CTA) */
+/* Clean Premium Vision Banner (Full Width, Zero Clipping, Perfectly Aligned) */
 .real-transform-banner-wrapper {
   margin-top: 3.5rem;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: block;
 }
 
 .transform-vision-banner {
   display: block;
   width: 100%;
-  max-width: 1060px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 16px 45px rgba(11, 44, 82, 0.16);
@@ -196,6 +194,7 @@
   border: none;
   background: transparent;
   cursor: pointer;
+  line-height: 0;
 }
 
 .transform-vision-banner:hover {
@@ -206,9 +205,9 @@
 .transform-vision-banner-img {
   width: 100%;
   height: auto;
-  max-height: 420px;
+  max-height: none;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 24px;
   border: none;
 }
