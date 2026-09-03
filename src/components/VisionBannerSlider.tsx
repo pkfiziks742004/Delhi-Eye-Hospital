@@ -17,12 +17,6 @@ const bannerSlides = [
     alt: 'See the World Clearly, Live Better - Expert Eye Care',
     title: 'See the World Clearly, Live Better',
   },
-  {
-    id: 3,
-    image: '/images/banner-slide-3.png',
-    alt: 'Better Vision. Better Life. - Advanced Technology & Trusted Care',
-    title: 'Expert Eye Specialists',
-  },
 ];
 
 export default function VisionBannerSlider() {
@@ -31,7 +25,7 @@ export default function VisionBannerSlider() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Auto slide timer
+  // Auto slide timer (slides every 4.5s)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
