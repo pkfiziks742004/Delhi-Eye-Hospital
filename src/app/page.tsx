@@ -4,6 +4,7 @@ import "./home.css";
 import InteractiveEye from '@/components/InteractiveEye';
 import TechCarousel from '@/components/TechCarousel';
 import HeroSlideshow from '@/components/HeroSlideshow';
+import RealTransformations from '@/components/RealTransformations';
 
 export default function Home() {
   return (
@@ -261,7 +262,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. Why Choose Us */}
+      {/* 10. Real Transformations (Before & After) */}
+      <RealTransformations />
+
+      {/* 11. Why Choose Us */}
       <section className="section section-alt">
         <div className="container">
           <h2 className="section-title">Why Patients Choose {hospitalData.hospitalName}</h2>
