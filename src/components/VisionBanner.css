@@ -1,248 +1,42 @@
-/* Vision Banner Section - See the World Clearly, Live Better */
+/* Vision Banner Section */
 .vision-banner-section {
-  padding: 4rem 0 5rem;
-  background-color: #f8fafc;
+  padding: 2.5rem 0 5rem;
+  background-color: transparent;
   position: relative;
 }
 
-.vision-banner-card {
-  background: linear-gradient(135deg, #051a36 0%, #0b3260 40%, #124e8f 80%, #1a64b5 100%);
-  border-radius: 32px;
+.vision-banner-wrapper {
+  position: relative;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(5, 26, 54, 0.28);
-  position: relative;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  min-height: 480px;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(7, 30, 61, 0.22);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #071e3d;
 }
 
-@media (max-width: 992px) {
-  .vision-banner-card {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
+.vision-banner-wrapper:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 0 28px 65px rgba(7, 30, 61, 0.32);
 }
 
-/* Background Decorative Elements */
-.banner-dot-pattern {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-  width: 140px;
-  height: 90px;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px);
-  background-size: 14px 14px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.banner-wave-rings {
-  position: absolute;
-  top: 50%;
-  right: 28%;
-  transform: translate(50%, -50%);
-  width: 650px;
-  height: 650px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
-  box-shadow: 
-    0 0 0 70px rgba(255, 255, 255, 0.02),
-    0 0 0 150px rgba(255, 255, 255, 0.015),
-    0 0 0 240px rgba(255, 255, 255, 0.01);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Left Content Column */
-.vision-banner-content {
-  padding: 4rem 3rem 4rem 4rem;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.vision-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 28px;
 }
 
 @media (max-width: 768px) {
-  .vision-banner-content {
-    padding: 3rem 1.75rem 2rem 1.75rem;
+  .vision-banner-section {
+    padding: 1.5rem 0 3.5rem;
   }
-}
-
-.vision-banner-title {
-  font-size: 3.4rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-  margin-bottom: 1.25rem;
-}
-
-.vision-banner-title span {
-  color: #29b6f6;
-}
-
-@media (max-width: 768px) {
-  .vision-banner-title {
-    font-size: 2.4rem;
+  .vision-banner-wrapper {
+    border-radius: 20px;
   }
-}
-
-.vision-banner-desc {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  font-weight: 400;
-}
-
-/* Center Highlight Pill */
-.vision-banner-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 22px;
-  border-radius: 12px;
-  border: 1px solid rgba(41, 182, 246, 0.5);
-  background: rgba(41, 182, 246, 0.08);
-  backdrop-filter: blur(8px);
-  width: fit-content;
-  margin-bottom: 2.75rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-.vision-banner-pill:hover {
-  background: rgba(41, 182, 246, 0.15);
-  border-color: #29b6f6;
-  transform: translateY(-2px);
-}
-
-.pill-eye-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #29b6f6;
-}
-
-.pill-label-text {
-  font-size: 1.1rem;
-  color: #ffffff;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-.pill-label-text strong {
-  color: #29b6f6;
-  font-weight: 700;
-}
-
-/* 3 Pillars Footer in Banner */
-.banner-features-row {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  flex-wrap: wrap;
-}
-
-.feature-col-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-}
-
-.feature-col-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: -1rem;
-  top: 20%;
-  height: 60%;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-@media (max-width: 600px) {
-  .feature-col-item:not(:last-child)::after {
-    display: none;
+  .vision-banner-img {
+    border-radius: 20px;
   }
-}
-
-.feature-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #29b6f6;
-  width: 32px;
-  height: 32px;
-}
-
-.feature-text-block {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: 1.25;
-}
-
-/* Right Doctor Visual & Clinic Chart Background */
-.vision-banner-visual {
-  position: relative;
-  height: 100%;
-  min-height: 480px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 5;
-}
-
-@media (max-width: 992px) {
-  .vision-banner-visual {
-    min-height: 380px;
-  }
-}
-
-/* Background Eye Test Chart */
-.chart-bg-overlay {
-  position: absolute;
-  top: 15%;
-  right: 8%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 18px 24px;
-  border-radius: 12px;
-  font-family: monospace;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.3);
-  text-align: center;
-  line-height: 1.3;
-  letter-spacing: 6px;
-  user-select: none;
-  pointer-events: none;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-}
-
-.chart-bg-overlay .chart-row-1 { font-size: 2.2rem; }
-.chart-bg-overlay .chart-row-2 { font-size: 1.5rem; }
-.chart-bg-overlay .chart-row-3 { font-size: 1.1rem; }
-.chart-bg-overlay .chart-row-4 { font-size: 0.85rem; letter-spacing: 4px; }
-
-/* Doctor Photo Cutout */
-.banner-doctor-img {
-  max-height: 470px;
-  width: auto;
-  object-fit: contain;
-  position: relative;
-  z-index: 6;
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.vision-banner-card:hover .banner-doctor-img {
-  transform: scale(1.02);
 }

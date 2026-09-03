@@ -198,10 +198,7 @@ export default function Home() {
       {/* 7. Interactive Specialities Eye Map */}
       <InteractiveEye />
 
-      {/* 8. Vision Feature Banner (See the World Clearly, Live Better) */}
-      <VisionBanner />
-
-      {/* 9. Doctors Section */}
+      {/* 8. Doctors Section */}
       <section className="section" style={{ backgroundColor: '#f0f7f4' }}>
         <div className="container">
           <h2 className="section-title" style={{ marginBottom: '4rem' }}>Meet Our Specialists</h2>
@@ -337,7 +334,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 12. Contact Section */}
+      {/* 12. Vision Feature Banner (See the World Clearly, Live Better) */}
+      <VisionBanner />
+
+      {/* 13. Contact Section */}
       <section className="section section-alt contact-section">
         <div className="container grid grid-cols-2">
           <div className="contact-info-panel">
