@@ -34,18 +34,6 @@ export default function VisionBannerSlider() {
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  const handlePrev = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentIndex((prev) => (prev === 0 ? bannerSlides.length - 1 : prev - 1));
-  };
-
-  const handleNext = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentIndex((prev) => (prev + 1) % bannerSlides.length);
-  };
-
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -96,30 +84,6 @@ export default function VisionBannerSlider() {
           );
         })}
       </div>
-
-      {/* Prev Navigation Arrow */}
-      <button 
-        type="button" 
-        className="vision-slider-btn prev-btn" 
-        onClick={handlePrev}
-        aria-label="Previous Slide"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-
-      {/* Next Navigation Arrow */}
-      <button 
-        type="button" 
-        className="vision-slider-btn next-btn" 
-        onClick={handleNext}
-        aria-label="Next Slide"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
 
       {/* Indicator Dots */}
       <div className="vision-slider-dots">
