@@ -7,34 +7,39 @@ import './RealTransformations.css';
 interface TransformationItem {
   id: string;
   title: string;
-  image: string;
+  beforeImage: string;
+  afterImage: string;
 }
 
 const transformations: TransformationItem[] = [
   {
     id: 'cataract',
     title: 'Cataract Surgery',
-    image: '/images/transformations/cataract.jpg',
+    beforeImage: '/images/transformations/cataract-before.jpg',
+    afterImage: '/images/transformations/cataract-after.jpg',
   },
   {
     id: 'squint',
     title: 'Squint Correction',
-    image: '/images/transformations/squint.jpg',
+    beforeImage: '/images/transformations/squint-before.jpg',
+    afterImage: '/images/transformations/squint-after.jpg',
   },
   {
     id: 'pterygium',
     title: 'Pterygium Excision',
-    image: '/images/transformations/pterygium.jpg',
+    beforeImage: '/images/transformations/pterygium-before.jpg',
+    afterImage: '/images/transformations/pterygium-after.jpg',
   },
   {
     id: 'blepharoplasty',
     title: 'Ptosis & Eyelid Lift',
-    image: '/images/transformations/blepharoplasty.jpg',
+    beforeImage: '/images/transformations/blepharoplasty-before.jpg',
+    afterImage: '/images/transformations/blepharoplasty-after.jpg',
   },
 ];
 
 function TransformationCard({ item }: { item: TransformationItem }) {
-  const [sliderPosition, setSliderPosition] = useState(50); // 0 to 100%
+  const [sliderPosition, setSliderPosition] = useState(50); // 0% (All After) to 100% (All Before)
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
 
@@ -48,7 +53,7 @@ function TransformationCard({ item }: { item: TransformationItem }) {
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     isDragging.current = true;
-    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
     updatePosition(e.clientX);
   };
 
@@ -61,7 +66,7 @@ function TransformationCard({ item }: { item: TransformationItem }) {
   const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     isDragging.current = false;
     try {
-      (e.target as HTMLElement).releasePointerCapture?.(e.pointerId);
+      (e.currentTarget as HTMLElement).releasePointerCapture?.(e.pointerId);
     } catch {
       // ignore
     }
@@ -77,29 +82,46 @@ function TransformationCard({ item }: { item: TransformationItem }) {
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerUp}
       >
-        {/* Full Image (Right Side - AFTER) */}
-        <div className="split-layer">
-          <img src={item.image} alt={`${item.title} Result`} />
-          <span className="pill-badge after">AFTER</span>
+        {/* Bottom Layer: AFTER IMAGE (Full width/height) */}
+        <div className="split-layer after-layer">
+          <img 
+            src={item.afterImage} 
+            alt={`${item.title} After Treatment`} 
+            draggable={false}
+          />
+          <span 
+            className="pill-badge after"
+            style={{ opacity: sliderPosition < 90 ? 1 : 0.2 }}
+          >
+            AFTER
+          </span>
         </div>
 
-        {/* Clipped Layer (Left Side - BEFORE) */}
+        {/* Top Layer: BEFORE IMAGE (Clipped precisely to slider position) */}
         <div 
-          className="split-layer"
+          className="split-layer before-layer"
           style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
         >
-          <img src={item.image} alt={`${item.title} Pre-Op`} />
-          <span className="pill-badge before">BEFORE</span>
+          <img 
+            src={item.beforeImage} 
+            alt={`${item.title} Before Treatment`} 
+            draggable={false}
+          />
+          <span 
+            className="pill-badge before"
+            style={{ opacity: sliderPosition > 10 ? 1 : 0.2 }}
+          >
+            BEFORE
+          </span>
         </div>
 
-        {/* Divider Line & Interactive Center Handle */}
+        {/* Vertical Divider Line with Center Drag Button */}
         <div 
           className="split-divider-line"
           style={{ left: `${sliderPosition}%` }}
         >
           <div className="split-center-btn" aria-label="Drag to compare before and after">
-            {/* Two-way horizontal arrows icon */}
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008080" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="m8 7-4 4 4 4"/>
               <path d="M4 11h16"/>
               <path d="m16 17 4-4-4-4"/>
@@ -118,21 +140,21 @@ export default function RealTransformations() {
     <section className="real-transformations-section" id="transformations">
       <div className="container">
         
-        {/* Header (Exact wording and structure from user's design) */}
+        {/* Header Section */}
         <div className="real-transform-header">
           <span className="real-transform-badge">REAL TRANSFORMATIONS</span>
           <h2 className="real-transform-title">Before &amp; After</h2>
           <p className="real-transform-subtitle">Real Results. Real People. Real Confidence.</p>
         </div>
 
-        {/* 4 Before & After Cards Grid */}
+        {/* 4 Cards Grid */}
         <div className="real-transform-grid">
           {transformations.map((item) => (
             <TransformationCard key={item.id} item={item} />
           ))}
         </div>
 
-        {/* Bottom Call to Action */}
+        {/* Bottom CTA Card */}
         <div className="real-transform-cta">
           <div className="cta-text-left">
             <h3>Experience Clear &amp; Healthy Vision Today</h3>
