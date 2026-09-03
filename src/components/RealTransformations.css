@@ -177,38 +177,51 @@
   letter-spacing: -0.2px;
 }
 
-/* Bottom CTA Banner */
-.real-transform-cta {
-  background: linear-gradient(135deg, #09203f 0%, #1e3c72 100%);
-  border-radius: 18px;
-  padding: 2rem 2.5rem;
+/* Clean Premium Vision Banner (Replaces old plain CTA) */
+.real-transform-banner-wrapper {
+  margin-top: 3.5rem;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(30, 60, 114, 0.2);
+  justify-content: center;
+}
+
+.transform-vision-banner {
+  display: block;
+  width: 100%;
+  max-width: 1060px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(11, 44, 82, 0.16);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.transform-vision-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(11, 44, 82, 0.24);
+}
+
+.transform-vision-banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  display: block;
+  object-fit: cover;
+  border-radius: 24px;
+  border: none;
 }
 
 @media (max-width: 768px) {
   .real-transform-title {
     font-size: 2.25rem;
   }
-  .real-transform-cta {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.75rem 1.25rem;
+  .real-transform-banner-wrapper {
+    margin-top: 2rem;
   }
-}
-
-.cta-text-left h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
-}
-
-.cta-text-left p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
-  margin: 0;
+  .transform-vision-banner,
+  .transform-vision-banner-img {
+    border-radius: 16px;
+  }
 }

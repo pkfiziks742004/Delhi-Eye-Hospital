@@ -5,7 +5,6 @@ import InteractiveEye from '@/components/InteractiveEye';
 import TechCarousel from '@/components/TechCarousel';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import RealTransformations from '@/components/RealTransformations';
-import VisionBanner from '@/components/VisionBanner';
 
 export default function Home() {
   return (
@@ -334,10 +333,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 12. Vision Feature Banner (See the World Clearly, Live Better) */}
-      <VisionBanner />
-
-      {/* 13. Contact Section */}
+      {/* 12. Contact Section */}
       <section className="section section-alt contact-section">
         <div className="container grid grid-cols-2">
           <div className="contact-info-panel">

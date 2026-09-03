@@ -1,42 +1,44 @@
 /* Vision Banner Section */
 .vision-banner-section {
-  padding: 2.5rem 0 5rem;
+  padding: 1.5rem 0 4rem;
   background-color: transparent;
   position: relative;
 }
 
 .vision-banner-wrapper {
   position: relative;
-  border-radius: 28px;
+  max-width: 1060px;
+  margin: 0 auto;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(7, 30, 61, 0.22);
+  box-shadow: 0 16px 45px rgba(11, 44, 82, 0.16);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
   display: block;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #071e3d;
+  border: none !important;
+  background: transparent;
 }
 
 .vision-banner-wrapper:hover {
-  transform: translateY(-4px) scale(1.005);
-  box-shadow: 0 28px 65px rgba(7, 30, 61, 0.32);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(11, 44, 82, 0.24);
 }
 
 .vision-banner-img {
   width: 100%;
   height: auto;
+  max-height: 420px;
   display: block;
   object-fit: cover;
-  border-radius: 28px;
+  border-radius: 24px;
+  border: none !important;
 }
 
 @media (max-width: 768px) {
   .vision-banner-section {
-    padding: 1.5rem 0 3.5rem;
+    padding: 1rem 0 2.5rem;
   }
-  .vision-banner-wrapper {
-    border-radius: 20px;
-  }
+  .vision-banner-wrapper,
   .vision-banner-img {
-    border-radius: 20px;
+    border-radius: 16px;
   }
 }

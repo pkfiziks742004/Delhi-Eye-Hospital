@@ -14,7 +14,7 @@ export default function VisionBanner() {
           aria-label="See the World Clearly, Live Better - Book Consultation"
         >
           <img 
-            src="/images/see-the-world-banner.jpg" 
+            src="/images/see-the-world-banner-clean.png" 
             alt="See the World Clearly, Live Better - Expert Eye Care" 
             className="vision-banner-img"
           />

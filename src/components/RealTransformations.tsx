@@ -154,14 +154,18 @@ export default function RealTransformations() {
           ))}
         </div>
 
-        {/* Bottom CTA Card */}
-        <div className="real-transform-cta">
-          <div className="cta-text-left">
-            <h3>Experience Clear &amp; Healthy Vision Today</h3>
-            <p>Schedule your clinical evaluation with our senior eye specialists.</p>
-          </div>
-          <Link href="?modal=book-appointment" className="btn btn-orange" style={{ whiteSpace: 'nowrap' }}>
-            Book Consultation
+        {/* Clean Premium Vision Banner (Replaces old plain CTA) */}
+        <div className="real-transform-banner-wrapper">
+          <Link 
+            href="?modal=book-appointment" 
+            className="transform-vision-banner"
+            aria-label="See the World Clearly, Live Better - Book Consultation"
+          >
+            <img 
+              src="/images/see-the-world-banner-clean.png" 
+              alt="See the World Clearly, Live Better - Expert Eye Care" 
+              className="transform-vision-banner-img"
+            />
           </Link>
         </div>
 
