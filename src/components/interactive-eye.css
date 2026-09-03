@@ -1,0 +1,272 @@
+.interactive-eye-section {
+  background-color: #000000;
+  padding: 6rem 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.interactive-eye-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .interactive-eye-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.interactive-eye-header h2 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 300;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.view-all-link {
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.view-all-link:hover {
+  color: #00d2ff;
+}
+
+.eye-map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+}
+
+.eye-svg-wrapper {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Blends the image's rectangular edges seamlessly into the pitch-black background */
+.eye-svg-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  box-shadow: inset 0 0 120px 80px #000000;
+  pointer-events: none;
+}
+
+.eye-graphic {
+  width: 100%;
+  height: 100%;
+  max-height: 700px;
+  object-fit: cover;
+}
+
+.hotspot-wrapper {
+  position: absolute;
+  z-index: 10;
+}
+
+.hotspot-wrapper.active,
+.hotspot-wrapper:hover {
+  z-index: 200;
+}
+
+.hotspot-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #ffb700;
+  border-radius: 50%;
+  position: absolute;
+  top: -7px; left: -7px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 183, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.hotspot-wrapper.active .hotspot-dot,
+.hotspot-wrapper:hover .hotspot-dot {
+  transform: scale(1.5);
+  background-color: #ffcc00;
+}
+
+.dashed-pill {
+  background-color: #000000; /* Hides the original baked-in text */
+  border: 1px solid rgba(59, 174, 227, 0.4);
+  border-radius: 20px;
+  padding: 6px 16px;
+  color: #3baee3; /* Light blue */
+  font-size: clamp(0.6rem, 1.5vw, 0.85rem);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+  .dashed-pill {
+    padding: 4px 8px;
+    font-size: clamp(0.55rem, 2vw, 0.75rem);
+  }
+  
+  /* Bring the labels inward over the eye graphic so they don't clip the screen edges */
+  .hotspot-wrapper.align-left {
+    transform: translate(-15%, -50%) !important;
+  }
+  
+  .hotspot-wrapper.align-right {
+    transform: translate(-85%, -50%) !important;
+  }
+  
+  .hotspot-wrapper.align-top {
+    transform: translate(-50%, -20%) !important;
+  }
+}
+
+.hotspot-wrapper.active .dashed-pill,
+.hotspot-wrapper:hover .dashed-pill {
+  border-color: #3baee3;
+  background-color: #111;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.hotspot-popover {
+  position: absolute;
+  top: 50%;
+  width: min(320px, calc(100vw - 32px));
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 174, 227, 0.3);
+  border-radius: 16px;
+  padding: 1.8rem;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+
+.align-left .hotspot-popover {
+  right: 50px;
+  transform-origin: right center;
+  top: 50%;
+  transform: translateY(-50%) scale(0.95);
+}
+
+.align-right .hotspot-popover {
+  left: 50px;
+  transform-origin: left center;
+  top: 50%;
+  transform: translateY(-50%) scale(0.95);
+}
+
+.align-top .hotspot-popover {
+  bottom: 50px;
+  top: auto;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%) scale(0.95);
+}
+
+.hotspot-wrapper.active.align-left .hotspot-popover,
+.hotspot-wrapper:hover.align-left .hotspot-popover,
+.hotspot-wrapper.active.align-right .hotspot-popover,
+.hotspot-wrapper:hover.align-right .hotspot-popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+  pointer-events: auto;
+}
+
+.hotspot-wrapper.active.align-top .hotspot-popover,
+.hotspot-wrapper:hover.align-top .hotspot-popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+
+.popover-icon {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 1.2rem;
+  opacity: 0.9;
+  color: white;
+}
+
+.hotspot-popover h3 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.hotspot-popover p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.popover-btn {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #3baee3 0%, #1c7ba8 100%);
+  color: white;
+  padding: 0.4rem 0.4rem 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(59, 174, 227, 0.3);
+}
+
+.popover-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(59, 174, 227, 0.5);
+}
+
+.arrow-circle {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding-bottom: 2px;
+}
