@@ -3,6 +3,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import './RealTransformations.css';
+import VisionBannerSlider from './VisionBannerSlider';
 
 interface TransformationItem {
   id: string;
@@ -154,19 +155,9 @@ export default function RealTransformations() {
           ))}
         </div>
 
-        {/* Clean Premium Vision Banner (16:9 Widescreen, Full Width, Zero Border) */}
+        {/* Clean Premium Auto-Sliding 3-Banner Carousel */}
         <div className="real-transform-banner-wrapper">
-          <Link 
-            href="?modal=book-appointment" 
-            className="transform-vision-banner"
-            aria-label="See the World Clearly, Live Better - Book Consultation"
-          >
-            <img 
-              src="/images/see-the-world-banner-new.jpg" 
-              alt="See the World Clearly, Live Better - Expert Eye Care" 
-              className="transform-vision-banner-img"
-            />
-          </Link>
+          <VisionBannerSlider />
         </div>
 
       </div>

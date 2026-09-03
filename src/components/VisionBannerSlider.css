@@ -1,0 +1,154 @@
+/* Vision Banner Slider Styles */
+.vision-slider-container {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(11, 44, 82, 0.16);
+  background: #061c38;
+  user-select: none;
+}
+
+.vision-slider-track {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.vision-slide-item {
+  display: none;
+  width: 100%;
+  position: relative;
+  text-decoration: none;
+  border-radius: 24px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.vision-slide-item.active {
+  display: block;
+  animation: bannerFadeSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bannerFadeSlide {
+  from {
+    opacity: 0;
+    transform: scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.vision-slide-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 24px;
+  border: none;
+}
+
+/* Slider Nav Buttons */
+.vision-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(7, 27, 56, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+}
+
+.vision-slider-container:hover .vision-slider-btn {
+  opacity: 1;
+}
+
+.vision-slider-btn:hover {
+  background: #0284c7;
+  border-color: #38bdf8;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+}
+
+.vision-slider-btn.prev-btn {
+  left: 18px;
+}
+
+.vision-slider-btn.next-btn {
+  right: 18px;
+}
+
+/* Indicator Dots */
+.vision-slider-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  background: rgba(5, 20, 42, 0.55);
+  padding: 6px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.vision-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+}
+
+.vision-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.vision-dot.active {
+  width: 26px;
+  border-radius: 6px;
+  background: #29b6f6;
+  box-shadow: 0 0 10px rgba(41, 182, 246, 0.8);
+}
+
+@media (max-width: 768px) {
+  .vision-slider-container,
+  .vision-slide-item,
+  .vision-slide-img {
+    border-radius: 16px;
+  }
+  .vision-slider-btn {
+    opacity: 0.9;
+    width: 36px;
+    height: 36px;
+  }
+  .vision-slider-btn.prev-btn {
+    left: 8px;
+  }
+  .vision-slider-btn.next-btn {
+    right: 8px;
+  }
+  .vision-slider-dots {
+    bottom: 10px;
+    padding: 4px 10px;
+  }
+}
