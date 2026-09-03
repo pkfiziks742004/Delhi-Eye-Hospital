@@ -154,94 +154,18 @@ export default function RealTransformations() {
           ))}
         </div>
 
-        {/* Clean Premium Vision Banner (Full Width, Compact Sleek Height, Ultra-Sharp) */}
+        {/* Clean Premium Vision Banner (16:9 Widescreen, Full Width, Zero Border) */}
         <div className="real-transform-banner-wrapper">
           <Link 
             href="?modal=book-appointment" 
-            className="transform-vision-card"
+            className="transform-vision-banner"
             aria-label="See the World Clearly, Live Better - Book Consultation"
           >
-            {/* Top-Left Dot Matrix Pattern */}
-            <div className="banner-dot-pattern"></div>
-            
-            {/* Background Wave Rings */}
-            <div className="banner-wave-rings"></div>
-
-            {/* Left Content */}
-            <div className="tv-content">
-              <h3 className="tv-title">
-                See the World<br />
-                Clearly, <span>Live Better</span>
-              </h3>
-
-              <p className="tv-desc">
-                Expert eye care for a brighter tomorrow. Your vision, our mission.
-              </p>
-
-              {/* Glowing Pill Button */}
-              <div className="tv-pill">
-                <span className="tv-pill-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </span>
-                <span className="tv-pill-text">
-                  Better Vision. <strong>Better Life.</strong>
-                </span>
-              </div>
-
-              {/* 3 Pillars Footer */}
-              <div className="tv-pillars-row">
-                <div className="tv-pillar">
-                  <span className="tv-pillar-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                      <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
-                  </span>
-                  <span className="tv-pillar-text">Advanced<br />Technology</span>
-                </div>
-
-                <div className="tv-pillar">
-                  <span className="tv-pillar-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                      <polyline points="9 12 11 14 15 10"></polyline>
-                    </svg>
-                  </span>
-                  <span className="tv-pillar-text">Trusted &amp;<br />Safe Care</span>
-                </div>
-
-                <div className="tv-pillar">
-                  <span className="tv-pillar-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                  </span>
-                  <span className="tv-pillar-text">Expert<br />Specialists</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Doctor Visual */}
-            <div className="tv-visual">
-              {/* Eye Chart Overlay */}
-              <div className="tv-chart-bg">
-                <div style={{ fontSize: '1.8rem' }}>E</div>
-                <div style={{ fontSize: '1.2rem', letterSpacing: '4px' }}>F P</div>
-                <div style={{ fontSize: '0.9rem', letterSpacing: '3px' }}>T O Z</div>
-                <div style={{ fontSize: '0.7rem', letterSpacing: '2px' }}>L P E D</div>
-              </div>
-
-              {/* Doctor Cutout */}
-              <img 
-                src="/images/banner-doctor.png" 
-                alt="Expert Ophthalmologist" 
-                className="tv-doctor-img"
-              />
-            </div>
+            <img 
+              src="/images/see-the-world-banner-new.jpg" 
+              alt="See the World Clearly, Live Better - Expert Eye Care" 
+              className="transform-vision-banner-img"
+            />
           </Link>
         </div>
 

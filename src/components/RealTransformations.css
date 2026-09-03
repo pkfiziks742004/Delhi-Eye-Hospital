@@ -177,234 +177,38 @@
   letter-spacing: -0.2px;
 }
 
-/* Clean Premium Vision Banner (Full Width, Compact Height, Razor-Sharp) */
+/* Clean Premium Vision Banner (16:9 Full Width, Zero Border, No Cropping) */
 .real-transform-banner-wrapper {
   margin-top: 3.5rem;
   width: 100%;
   display: block;
 }
 
-.transform-vision-card {
+.transform-vision-banner {
+  display: block;
   width: 100%;
-  background: linear-gradient(135deg, #051a36 0%, #0b3260 40%, #124e8f 80%, #1a64b5 100%);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 16px 45px rgba(11, 44, 82, 0.18);
+  box-shadow: 0 16px 45px rgba(11, 44, 82, 0.16);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: center;
-  min-height: 340px;
-  max-height: 380px;
-  position: relative;
-  text-decoration: none;
-  color: #ffffff;
   border: none;
+  background: transparent;
   cursor: pointer;
+  line-height: 0;
 }
 
-.transform-vision-card:hover {
+.transform-vision-banner:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 55px rgba(11, 44, 82, 0.28);
+  box-shadow: 0 24px 55px rgba(11, 44, 82, 0.26);
 }
 
-/* Background elements inside card */
-.transform-vision-card .banner-dot-pattern {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  width: 110px;
-  height: 70px;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px);
-  background-size: 12px 12px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.transform-vision-card .banner-wave-rings {
-  position: absolute;
-  top: 50%;
-  right: 25%;
-  transform: translate(50%, -50%);
-  width: 500px;
-  height: 500px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 50%;
-  box-shadow: 
-    0 0 0 50px rgba(255, 255, 255, 0.02),
-    0 0 0 110px rgba(255, 255, 255, 0.015),
-    0 0 0 180px rgba(255, 255, 255, 0.01);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Left Content */
-.tv-content {
-  padding: 2.25rem 2rem 2.25rem 3rem;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.tv-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-  margin-bottom: 0.6rem;
-}
-
-.tv-title span {
-  color: #29b6f6;
-}
-
-.tv-desc {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-  font-weight: 400;
-}
-
-/* Pill */
-.tv-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 18px;
-  border-radius: 10px;
-  border: 1px solid rgba(41, 182, 246, 0.5);
-  background: rgba(41, 182, 246, 0.08);
-  backdrop-filter: blur(8px);
-  width: fit-content;
-  margin-bottom: 1.75rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-.tv-pill-icon {
-  display: flex;
-  align-items: center;
-  color: #29b6f6;
-}
-
-.tv-pill-text {
-  font-size: 0.95rem;
-  color: #ffffff;
-  font-weight: 500;
-}
-
-.tv-pill-text strong {
-  color: #29b6f6;
-  font-weight: 700;
-}
-
-/* 3 Pillars */
-.tv-pillars-row {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  flex-wrap: wrap;
-}
-
-.tv-pillar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-}
-
-.tv-pillar:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: -0.75rem;
-  top: 15%;
-  height: 70%;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.tv-pillar-icon {
-  display: flex;
-  align-items: center;
-  color: #29b6f6;
-}
-
-.tv-pillar-text {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: 1.25;
-}
-
-/* Right Doctor Visual */
-.tv-visual {
-  position: relative;
-  height: 100%;
-  min-height: 340px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 5;
-}
-
-.tv-chart-bg {
-  position: absolute;
-  top: 12%;
-  right: 10%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-family: monospace;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.35);
-  text-align: center;
-  line-height: 1.3;
-  letter-spacing: 5px;
-  user-select: none;
-  pointer-events: none;
-}
-
-.tv-doctor-img {
-  max-height: 350px;
-  width: auto;
-  object-fit: contain;
-  position: relative;
-  z-index: 6;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.transform-vision-banner-img {
+  width: 100%;
+  height: auto;
   display: block;
-}
-
-.transform-vision-card:hover .tv-doctor-img {
-  transform: scale(1.02);
-}
-
-@media (max-width: 992px) {
-  .transform-vision-card {
-    grid-template-columns: 1fr;
-    max-height: none;
-    min-height: auto;
-  }
-  .tv-content {
-    padding: 2.25rem 1.75rem 1.5rem;
-  }
-  .tv-visual {
-    min-height: 280px;
-  }
-  .tv-doctor-img {
-    max-height: 280px;
-  }
-  .tv-title {
-    font-size: 2rem;
-  }
+  object-fit: contain;
+  border-radius: 24px;
+  border: none;
 }
 
 @media (max-width: 768px) {
@@ -414,7 +218,8 @@
   .real-transform-banner-wrapper {
     margin-top: 2rem;
   }
-  .transform-vision-card {
-    border-radius: 18px;
+  .transform-vision-banner,
+  .transform-vision-banner-img {
+    border-radius: 16px;
   }
 }
